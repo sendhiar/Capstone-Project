@@ -16,7 +16,6 @@ list_buku=[['F01', 'Fiksi', 'One Piece', 'Eiichiro Oda', 90, 50000],
 
 # header tabel
 header_lengkap=['Index', 'Kode Buku', 'Jenis Buku', 'Judul Buku', 'Penulis', 'Stok', 'Harga']
-# header_cart=['Kode Buku', 'Judul Buku', 'Jumlah Buku' 'Harga']
 
 # function table
 def buat_tabel(data, headers):
@@ -32,14 +31,6 @@ def buat_tabel(data, headers):
 def tabel_lengkap():
     tabel_hasil=buat_tabel(list_buku, header_lengkap)
     print(tabel_hasil)
-
-# #keranjang belanja
-# cart=[]
-# tabel_cart=PrettyTable()
-# tabel_cart.set_style(SINGLE_BORDER)
-# tabel_cart.field_names=['Kode Buku', 'Judul Buku', 'Jumlah Buku', 'Harga']
-# # for row in cart:
-# #     tabel_cart.add_row(row)
 
 # DAFTAR FUNCTION
 # function 0: cek jumlah data
@@ -225,9 +216,14 @@ def ubah_buku():
                                 ganti_kolom=input('Masukkan jenis buku baru (Fiksi/Non Fiksi): ')
                                 ganti_kolom_jenis=ganti_kolom.title()
                                 if ganti_kolom_jenis == 'Fiksi' or ganti_kolom_jenis == 'Non Fiksi':
-                                    list_buku[buku_pilihan][1]=ganti_kolom_jenis
-                                    print(f'\nJenis Buku berhasil diubah menjadi {ganti_kolom_jenis}.')
-                                    break
+                                    jawaban2=input(f'Apakah Anda yakin ingin mengganti {list_buku[buku_pilihan][1]} dengan {ganti_kolom_jenis}? (ya/tidak) ')
+                                    jawaban2_upper=jawaban2.upper()
+                                    if jawaban2_upper == 'TIDAK':
+                                        break
+                                    elif jawaban2_upper == 'YA':
+                                        list_buku[buku_pilihan][1]=ganti_kolom_jenis
+                                        print(f'\nJenis Buku berhasil diubah menjadi {ganti_kolom_jenis}.')
+                                        break
                                 elif ganti_kolom_jenis != 'Fiksi' or ganti_kolom_jenis != 'Non Fiksi':
                                     print('Jenis Buku yang Anda masukkan tidak terdapat pada sistem.')
                                     break
@@ -236,7 +232,12 @@ def ubah_buku():
                             elif pilih_kolom_title == 'Judul Buku':
                                 ganti_kolom=(input('Masukkan Judul Buku baru: '))
                                 ganti_kolom_judul=ganti_kolom.title()
-                                list_buku[buku_pilihan][2]=ganti_kolom_judul
+                                jawaban2=input(f'Apakah Anda yakin ingin mengganti {list_buku[buku_pilihan][2]} dengan {ganti_kolom_judul}? (ya/tidak) ')
+                                jawaban2_upper=jawaban2.upper()
+                                if jawaban2_upper == 'TIDAK':
+                                    break
+                                elif jawaban2_upper == 'YA':
+                                    list_buku[buku_pilihan][2]=ganti_kolom_judul
                                 print(f'\nJudul Buku telah berhasil diubah menjadi {ganti_kolom_judul}.')
                                 break
                             
@@ -244,7 +245,12 @@ def ubah_buku():
                             elif pilih_kolom_title == 'Penulis':
                                 ganti_kolom=(input('Masukkan nama Penulis baru: '))
                                 ganti_kolom_penulis=ganti_kolom.title()
-                                list_buku[buku_pilihan][3]=ganti_kolom_penulis
+                                jawaban2=input(f'Apakah Anda yakin ingin mengganti {list_buku[buku_pilihan][3]} dengan {ganti_kolom_penulis}? (ya/tidak) ')
+                                jawaban2_upper=jawaban2.upper()
+                                if jawaban2_upper == 'TIDAK':
+                                    break
+                                elif jawaban2_upper == 'YA':
+                                    list_buku[buku_pilihan][3]=ganti_kolom_penulis
                                 print(f'\nPenulis telah berhasil diubah menjadi {ganti_kolom_penulis}')
                                 break
                             
@@ -256,9 +262,14 @@ def ubah_buku():
                                         if ganti_stok < 0 or ganti_stok == 0:
                                             print('Anda tidak bisa memasukkan angka 0 atau negatif.\n')
                                         else:
-                                            list_buku[buku_pilihan][4]=ganti_stok
-                                            print(f'\nStok telah berhasil diubah menjadi {ganti_stok}')
-                                            break
+                                            jawaban2=input(f'Apakah Anda yakin ingin mengganti {list_buku[buku_pilihan][4]} dengan {ganti_stok}? (ya/tidak) ')
+                                            jawaban2_upper=jawaban2.upper()
+                                            if jawaban2_upper == 'TIDAK':
+                                                break
+                                            elif jawaban2_upper == 'YA':
+                                                list_buku[buku_pilihan][4]=ganti_stok
+                                                print(f'\nStok telah berhasil diubah menjadi {ganti_stok}')
+                                                break
                                     except ValueError:
                                         print('Anda hanya bisa memasukkan stok berupa angka(integer).\n')
 
@@ -270,9 +281,14 @@ def ubah_buku():
                                         if ganti_harga < 0 or ganti_harga == 0:
                                             print('Anda tidak bisa memasukkan angka 0 atau negatif.\n')
                                         else:
-                                            list_buku[buku_pilihan][5]=ganti_harga
-                                            print(f'\nHarga telah berhasil diubah menjadi {ganti_harga}')
-                                            break
+                                            jawaban2=input(f'Apakah Anda yakin ingin mengganti {list_buku[buku_pilihan][5]} dengan {ganti_harga}? (ya/tidak) ')
+                                            jawaban2_upper=jawaban2.upper()
+                                            if jawaban2_upper == 'TIDAK':
+                                                break
+                                            elif jawaban2_upper == 'YA':
+                                                list_buku[buku_pilihan][5]=ganti_harga
+                                                print(f'\nHarga telah berhasil diubah menjadi {ganti_harga}')
+                                                break
                                     except ValueError:
                                         print('Anda hanya bisa memasukkan stok berupa angka(integer).\n')
                             else:
@@ -347,66 +363,21 @@ Masukkan angka menu yang dituju: ''')
         else:
             print('Menu yang Anda pilih tidak ditemukan. Silakan pilih menu yang tersedia.')
 
-# function 5: beli_buku (opsional)
-# function 5.2: menu beli buku
-# def menu_beli_buku():
-#     while(True):
-#         pilihan_menu=input('''\nMenu Pembelian Buku\n---
-# 1. Beli Buku
-# 2. Kembali ke Menu Utama\n
-# Masukkan angka menu yang dituju: ''')
-#         if(pilihan_menu == '1'):
-#             beli_buku()
-#         elif(pilihan_menu == '2'):
-#             break
-#         else:
-#             print('Menu yang Anda pilih tidak ditemukan. Silakan pilih menu yang tersedia.')
-
-# function 6.2: beli buku
-# def beli_buku():
-#     while (True):
-#         try:
-#             tabel_lengkap()
-#             index_buku = int(input('Masukkan Index Buku yang ingin Anda beli: '))-1
-#             # print(list_buku[index_buku][4])
-#             if index_buku >= 0 and index_buku < len(list_buku):
-#                 jumlah_buku=int(input('Masukkan Jumlah Buku yang ingin Anda beli: '))
-#                 if (jumlah_buku > list_buku[index_buku][4]):
-#                     print(f'\nJumlah Buku yang ingin Anda beli terlalu banyak.\nStok {list_buku[index_buku][2]} hanya tersisa sebanyak {list_buku[index_buku][4]} buah.')
-#                 else:
-#                     cart.append([list_buku[index_buku][0], list_buku[index_buku][2], jumlah_buku, list_buku[index_buku][5]])
-#                 for rows in cart:
-#                     tabel_cart.add_row(rows)
-#                     print(tabel_cart)
-                
-#                 checker = input('Beli buku yang lainnya? (ya/tidak)')
-#                 if checker == 'tidak':
-#                     break
-#             elif index_buku <= 0 or index_buku == 0:
-#                 print('Anda tidak bisa memasukkan index 0 atau negatif.')
-#                 break
-#             elif index_buku >= len(list_buku):
-#                 print('Index yang Anda masukkan tidak terdapat pada sistem. Silakan pilih index yang tersedia.')
-#                 break
-#         except ValueError:
-#             print('Masukkan Index Buku berupa angka (integer).')
-#             break
-
-# function 7: keluar_program
+# function 5: keluar_program
 def keluar_program():
     print('\nTerima kasih telah berkunjung ke Toko Buku Kineruku.\n')
     exit()
 
 # function menu_utama
 def menu_utama():
-    pilihan_menu=input(f'''\nSelamat datang\ndi Toko Buku Kineruku!\n
+    pilihan_menu=input(f'''\nSelamat datang di Toko Buku Kineruku!\n
 Daftar Menu:
 1. Lihat Daftar Buku
 2. Tambah Data Buku    
 3. Ubah Data Buku
 4. Hapus Data Buku
 5. Keluar Program\n
-Masukkan angka menu yang dituju (1-6): ''')
+Masukkan angka menu yang dituju (1-5): ''')
     if(pilihan_menu == '1'):
         menu_lihat_buku()
     elif(pilihan_menu == '2'):
@@ -415,13 +386,11 @@ Masukkan angka menu yang dituju (1-6): ''')
         menu_ubah_buku()
     elif(pilihan_menu == '4'):
         menu_hapus_buku()
-    # elif(pilihan_menu == '5'):
-    #     menu_beli_buku()
     elif(pilihan_menu == '5'):
         keluar_program()
     else:
         print('''\nMenu yang Anda masukkan tidak ditemukan.\nSilakan masukkan angka menu yang tersedia.\n---''')
 
-# daftar menu
+# menu utama
 while(True):
     menu_utama()
